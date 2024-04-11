@@ -9,7 +9,7 @@ class MoneyTests: XCTestCase {
   let fifteenEUR = Money(amount: 15, currency: "EUR")
   let fifteenCAN = Money(amount: 15, currency: "CAN")
   
-  func testCanICreateMoney() {
+  func testCanICreateMoney() { 
     let oneUSD = Money(amount: 1, currency: "USD")
     XCTAssert(oneUSD.amount == 1)
     XCTAssert(oneUSD.currency == "USD")
@@ -31,6 +31,7 @@ class MoneyTests: XCTestCase {
   }
   func testUSDtoCAN() {
     let can = twelveUSD.convert("CAN")
+      print(can.amount)
     XCTAssert(can.currency == "CAN")
     XCTAssert(can.amount == 15)
   }
@@ -45,6 +46,7 @@ class MoneyTests: XCTestCase {
     XCTAssert(usd.amount == 10)
   }
   func testCANtoUSD() {
+      
     let usd = fifteenCAN.convert("USD")
     XCTAssert(usd.currency == "USD")
     XCTAssert(usd.amount == 12)
@@ -53,6 +55,7 @@ class MoneyTests: XCTestCase {
   func testUSDtoEURtoUSD() {
     let eur = tenUSD.convert("EUR")
     let usd = eur.convert("USD")
+    print(tenUSD)
     XCTAssert(tenUSD.amount == usd.amount)
     XCTAssert(tenUSD.currency == usd.currency)
   }
